@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Ventus Music</title>    
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet" >
+    <link href="assets/css/app.css" rel="stylesheet">
+    <link href="assets/font-awesome/css/all.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script type="text/javascript" src="assets/js/getNewReleases.js"></script>
+    <style type="text/css">
+     
+    </style>
+  </head>
+
+  <body style=" height: 100%;">
+    <div class="navbar bg-white shadow-sm">
+
+    </div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" >
+     <div class="container d-flex justify-content-between" style="max-width: 1140px;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="music.html">Music</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="musicChart.html">Chart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="exploreTags.html">Explore</a>
+            </li>
+          </ul>
+         <form class="form-inline my-2 my-lg-0">
+            <a href="search.html"><i class="fas fa-search text-white mr-5"></i></a>
+          </form>
+          <ul class="navbar-nav ml-2">
+              <li class="nav-item "><a href="login.html" class="text-white"><i class="far fa-user text-white"></i> Login</a></li>
+          </ul>
+    </nav>
+    
+
+<div class="container mt-3">
+    <div class="col-md-12">
+      
+        <p>Music</p>
+        <h4>Populer</h4>
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Lokal</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Internasional</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="row mt-3" id="newReleases">
+          
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="row mt-3" id="comingSoon">
+
+        </div>
+      </div>
+    </div>
+      
+    </div>
+</div>
+<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+</body>
+</html>

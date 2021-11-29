@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Ventus Music</title>    
+
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet" >
+    <link href="assets/css/app.css" rel="stylesheet">
+    <link href="assets/font-awesome/css/all.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script type="text/javascript" src="assets/js/angular-1.6.9.js"></script>
+    <script type="text/javascript" src="assets/js/getTrackInfo.js"></script>
+    
+    
+  </head>
+
+  <body style=" height: 100%;">
+    <div class="navbar bg-white shadow-sm">
+
+    </div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" >
+     <div class="container d-flex justify-content-between" style="max-width: 1140px;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="music.html">Music</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="musicChart.html">Chart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="exploreTags.html">Explore</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <a href="search.html"><i class="fas fa-search text-white mr-5"></i></a>
+          </form>
+          <ul class="navbar-nav ml-2">
+              <li class="nav-item "><a href="login.html" class="text-white"><i class="far fa-user text-white"></i> Login</a></li>
+          </ul>
+    </nav>
+    
+
+<div class="container">
+    <div class="col-md-12 mt-5 row" >
+      
+      <div class="col-md-4">
+        <img src="" class="img-fluid" id="imgTrack">
+      </div>
+      <div class="col-md-6">
+        <h5 id="titleTracks"></h5>
+        <table>
+          <tr>
+            <td width="100">Artist</td>
+            <td id="artistName">: </td>
+          </tr>
+          <tr>
+            <td width="100">Album</td>
+            <td id="album">: </td>
+          </tr>
+          <tr>
+            <td width="100">Listeners</td>
+            <td id="listeners">: </td>
+          </tr>
+          <tr>
+            <td width="100">Playcount</td>
+            <td id="playcount">: </td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+  
+  var params  = window.location.search.split('?')[1]; 
+  var artist = params.split('=')[2];
+  var track = params.split('=')[1].split('&')[0];
+   getTracks(track, artist);
+  
+  
+
+
+function getTracks(track, artist)
+{
+
+var api = '446eb41c159860b0ee6b56b098cb693b';
+var url = "http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key="+api+"&artist="+artist+"&track="+track+"&format=json";
+
+$.ajax({
+  url: url,
+  type: 'GET',
+  success: function(response)
+      {
+        var data = response.track;
+        $('#titleTracks').html(data.name);
+        $('#artistName').html(': '+data.artist.name);
+        $('#album').html(': '+data.album.title+" - "+data.album.artist);
+        $('#listeners').html(': '+data.listeners);
+        $('#playcount').html(': '+data.playcount);
+        $('#imgTrack').attr('src', data.album.image['3']['#text']);
+        console.log(data);
+      },
+   error: function(error)
+   {
+    console.log(error);
+   }
+});
+
+}
+
+</script>
+
+
+
+</body>
+</html>
